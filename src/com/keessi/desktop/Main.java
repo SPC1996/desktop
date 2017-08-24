@@ -10,9 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -29,12 +26,11 @@ public class Main extends Application {
         grid.setPadding(new Insets(25, 25, 25, 25));
 
         final Text actionTarget = new Text();
-        actionTarget.setFill(Color.FIREBRICK);
-        actionTarget.setFont(Font.font("Courier New", FontWeight.NORMAL, 12));
+        actionTarget.setId("action-target");
         grid.add(actionTarget, 1, 7);
 
         Text sceneTitle = new Text("Welcome to login Form");
-        sceneTitle.setFont(Font.font("Courier New", FontWeight.NORMAL, 20));
+        sceneTitle.setId("welcome-text");
         grid.add(sceneTitle, 0, 0, 2, 1);
 
         Label username = new Label("Username:");
@@ -61,6 +57,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(grid, 400, 275);
         primaryStage.setScene(scene);
+        scene.getStylesheets().add(this.getClass().getResource("css/login.css").toExternalForm());
         primaryStage.setResizable(false);
         primaryStage.show();
     }
